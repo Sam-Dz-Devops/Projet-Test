@@ -1,0 +1,45 @@
+name: Auto Sync M3U8 Files
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # toutes les 5 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-m3u8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run M3U8 update script
+        run: python3 ./scripts/tf1_m3u8.py
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        run: |
+          git add Streams/
+          git diff --cached --quiet || git commit -m "Auto Sync M3U8 files: $(date)"
+
+      - name: Push changes
+        env:
+          TOKEN: ${{ secrets.PAT_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          git push https://x-access-token:${TOKEN}@github.com/${REPO}.git HEAD:${BRANCH}
