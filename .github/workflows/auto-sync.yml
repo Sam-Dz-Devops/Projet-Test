@@ -32,6 +32,12 @@ jobs:
       - name: Run France 3 update script
         run: python3 ./scripts/france3_m3u8.py
 
+      - name: Run France 4 update script
+        run: python3 ./scripts/france4_m3u8.py
+
+      - name: Run France 5 update script
+        run: python3 ./scripts/france5_m3u8.py
+
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
