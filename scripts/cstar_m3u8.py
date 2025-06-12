@@ -12,8 +12,8 @@ def log(msg):
 url = "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/canalplus/cstar-dm.m3u8"
 
 # Dossier et fichier de sortie
-OUTPUT_DIR = "./Streams"
-OUTPUT_FILE = "cstar-1080.m3u8"
+FHD_OUTPUT_DIR = "./Streams"
+FHD_OUTPUT_FILE = "cstar.m3u8"
 
 try:
     log(f"Téléchargement de : {url}")
@@ -22,23 +22,29 @@ try:
     if response.status_code == 200:
         contenu = response.text
 
-        # Regex pour capturer les deux lignes ensemble
-        pattern = re.compile(r'(#EXT-X-STREAM-INF:.*NAME="1080@60".*?)\n(https?://[^\s]+1080@60\.m3u8)', re.DOTALL)
-        match = pattern.search(contenu)
+        # Extraction des URLs contenant '60.m3u8'
+        urls_m3u8 = re.findall(r'(https?://[^\s]+60\.m3u8)', contenu)
+        urls_sans_suffixe = [re.sub(r'60\.m3u8$', '', url) for url in urls_m3u8]
 
-        if match:
-            stream_info = match.group(1)
-            stream_url = match.group(2)
-            final_content = f"#EXTM3U\n{stream_info}\n{stream_url}\n"
+        if urls_sans_suffixe:
+            m3u8_url = urls_sans_suffixe[0]
+            log(f"URL extraite : {m3u8_url}")
 
-            os.makedirs(OUTPUT_DIR, exist_ok=True)
-            output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
+            def generate_m3u_content(m3u8_url, resolution, bandwidth, video_url):
+                content = "#EXTM3U\n"
+                content += f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={bandwidth-200000},CODECS="avc1.64002A,mp4a.40.2",RESOLUTION={resolution},FRAME-RATE=25.000,AUDIO="audio-AACL-128"\n{m3u8_url}{video_url}\n'
+                return content
+
+            fhd_content = generate_m3u_content(m3u8_url, "1920x1080", 4277000, "60.m3u8")
+
+            os.makedirs(FHD_OUTPUT_DIR, exist_ok=True)
+            output_path = os.path.join(FHD_OUTPUT_DIR, FHD_OUTPUT_FILE)
             with open(output_path, "w") as f:
-                f.write(final_content)
+                f.write(fhd_content)
 
             log(f"✅ Fichier généré : {output_path}")
         else:
-            log("❌ Aucun flux 1080@60 trouvé.")
+            log("❌ Aucune URL contenant '60.m3u8' trouvée.")
             sys.exit(1)
     else:
         log(f"❌ Erreur HTTP {response.status_code} lors du téléchargement.")
