@@ -38,6 +38,9 @@ jobs:
       - name: Run France 5 update script
         run: python3 ./scripts/france5_m3u8.py
 
+      - name: Run CSTAR M3U8 update script
+        run: python3 ./scripts/cstar_m3u8.py
+        
       - name: Run TFX M3U8 update script
         run: python3 ./scripts/tfx_m3u8.py
 
