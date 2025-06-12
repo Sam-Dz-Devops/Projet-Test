@@ -22,9 +22,9 @@ try:
     if response.status_code == 200:
         contenu = response.text
 
-        # Extraction des URLs contenant '60.m3u8'
-        urls_m3u8 = re.findall(r'(https?://[^\s]+60\.m3u8)', contenu)
-        urls_sans_suffixe = [re.sub(r'60\.m3u8$', '', url) for url in urls_m3u8]
+        # Extraction des URLs contenant '1080@60.m3u8'
+        urls_m3u8 = re.findall(r'(https?://[^\s]+1080@60\.m3u8)', contenu)
+        urls_sans_suffixe = [re.sub(r'1080@60\.m3u8$', '', url) for url in urls_m3u8]
 
         if urls_sans_suffixe:
             m3u8_url = urls_sans_suffixe[0]
@@ -35,7 +35,7 @@ try:
                 content += f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={bandwidth-200000},CODECS="avc1.64002A,mp4a.40.2",RESOLUTION={resolution},FRAME-RATE=25.000,AUDIO="audio-AACL-128"\n{m3u8_url}{video_url}\n'
                 return content
 
-            fhd_content = generate_m3u_content(m3u8_url, "1920x1080", 4277000, "60.m3u8")
+            fhd_content = generate_m3u_content(m3u8_url, "1920x1080", 4277000, "1080@60.m3u8")
 
             os.makedirs(FHD_OUTPUT_DIR, exist_ok=True)
             output_path = os.path.join(FHD_OUTPUT_DIR, FHD_OUTPUT_FILE)
