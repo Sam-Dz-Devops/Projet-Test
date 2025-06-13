@@ -29,12 +29,12 @@ try:
             m3u8_url = urls_m3u8[0]
             log(f"URL extraite : {m3u8_url}")
 
-            def generate_m3u_content(m3u8_url, resolution, bandwidth, video_url):
+            def generate_m3u_content(m3u8_url, resolution, bandwidth):
                 content = "#EXTM3U\n"
-                content += f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={bandwidth-200000},CODECS="avc1.64002A,mp4a.40.2",RESOLUTION={resolution},FRAME-RATE=25.000,AUDIO="audio-AACL-128"\n{m3u8_url}{video_url}\n'
+                content += f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={bandwidth-200000},CODECS="avc1.64002A,mp4a.40.2",RESOLUTION={resolution},FRAME-RATE=25.000,AUDIO="audio-AACL-128"\n{m3u8_url}\n'
                 return content
 
-            fhd_content = generate_m3u_content(m3u8_url, "1920x1080", 4277000, "master.m3u8")
+            fhd_content = generate_m3u_content(m3u8_url, "1920x1080", 4277000)
 
             os.makedirs(FHD_OUTPUT_DIR, exist_ok=True)
             output_path = os.path.join(FHD_OUTPUT_DIR, FHD_OUTPUT_FILE)
