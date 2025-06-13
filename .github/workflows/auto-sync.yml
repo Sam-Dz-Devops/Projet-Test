@@ -44,7 +44,7 @@ jobs:
       - name: Run TFX M3U8 update script
         run: python3 ./scripts/tfx_m3u8.py
         
-      - name: Run TFX M3U8 update script
+      - name: Run CHERIE25 M3U8 update script
         run: python3 ./scripts/cherie25_m3u8.py
         
       - name: Run ARTE M3U8 update script
