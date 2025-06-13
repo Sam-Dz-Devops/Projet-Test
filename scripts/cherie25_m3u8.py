@@ -24,10 +24,8 @@ try:
 
         # Extraction des URLs contenant 'master.m3u8'
         urls_m3u8 = re.findall(r'(https?://[^\s]+master\.m3u8)', contenu)
-        urls_sans_suffixe = [re.sub(r'master\.m3u8$', '', url) for url in urls_m3u8]
 
-        if urls_sans_suffixe:
-            m3u8_url = urls_sans_suffixe[0]
+        if urls_m3u8:
             log(f"URL extraite : {m3u8_url}")
 
             def generate_m3u_content(m3u8_url, resolution, bandwidth, video_url):
