@@ -26,6 +26,7 @@ try:
         urls_m3u8 = re.findall(r'(https?://[^\s]+master\.m3u8)', contenu)
 
         if urls_m3u8:
+            m3u8_url = urls_m3u8[0]
             log(f"URL extraite : {m3u8_url}")
 
             def generate_m3u_content(m3u8_url, resolution, bandwidth, video_url):
