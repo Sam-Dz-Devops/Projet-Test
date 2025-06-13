@@ -23,7 +23,7 @@ try:
         contenu = response.text
 
         # Extraction des URLs contenant 'master.m3u8'
-        urls_m3u8 = re.findall(r'(https?://[^\s]+master\.m3u8)', contenu)
+        urls_m3u8 = re.findall(r'^(https?://[^\s]+)', contenu, re.MULTILINE)
 
         if urls_m3u8:
             m3u8_url = urls_m3u8[0]
