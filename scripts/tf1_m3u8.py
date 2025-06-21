@@ -9,7 +9,7 @@ def log(msg):
     print(f"[{datetime.datetime.now()}] {msg}")
 
 # URL source
-url = "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/tf1plus/tf1.m3u"
+url = "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/tf1plus/tf1.m3u8"
 
 # Dossier et fichier de sortie
 FHD_OUTPUT_DIR = "./Streams"
