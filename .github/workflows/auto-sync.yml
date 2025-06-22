@@ -61,6 +61,9 @@ jobs:
 
       - name: Run ARTE Backup M3U8 update script
         run: python3 ./scripts/arte-bck_m3u8.py
+
+      - name: Run TF1 Séries Films M3U8 update script
+        run: python3 ./scripts/tf1-series-films_m3u8.py
         
       - name: Configure Git
         run: |
