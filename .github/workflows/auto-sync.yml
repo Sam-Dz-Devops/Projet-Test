@@ -59,6 +59,9 @@ jobs:
       - name: Run ARTE M3U8 update script
         run: python3 ./scripts/arte_m3u8.py
 
+      - name: Run ARTE Backup M3U8 update script
+        run: python3 ./scripts/arte-bck_m3u8.py
+        
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
