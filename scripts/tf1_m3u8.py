@@ -13,7 +13,7 @@ url = "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/tf1plus
 
 # Dossier et fichier de sortie
 FHD_OUTPUT_DIR = "./Streams"
-FHD_OUTPUT_FILE = "tf1.m3u8"
+FHD_OUTPUT_FILE = "tf1-bck.m3u8"
 
 try:
     log(f"Téléchargement de : {url}")
