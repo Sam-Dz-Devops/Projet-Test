@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run TF1 M3U8 update script
+      - name: Run TF1 Backup M3U8 update script
         run: python3 ./scripts/tf1_m3u8.py
         
       - name: Run France 2 update script
