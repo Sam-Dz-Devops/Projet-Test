@@ -64,6 +64,9 @@ jobs:
 
       - name: Run TF1 Séries Films M3U8 update script
         run: python3 ./scripts/tf1-series-films_m3u8.py
+
+      - name: Run France TV Séries M3U8 update script
+        run: python3 ./scripts/france-tv-series_m3u8.py
         
       - name: Configure Git
         run: |
