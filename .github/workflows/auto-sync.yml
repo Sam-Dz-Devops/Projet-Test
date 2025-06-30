@@ -69,7 +69,7 @@ jobs:
         run: python3 ./scripts/france-tv-series_m3u8.py
 
       - name: Run France TV Docs M3U8 update script
-        run: python3 ./scripts/france-tv-docs.m3u8
+        run: python3 ./scripts/france-tv-docs_m3u8.py
         
       - name: Configure Git
         run: |
