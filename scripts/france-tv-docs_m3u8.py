@@ -14,7 +14,7 @@ url = "https://raw.githubusercontent.com/Paradise-91/ParaTV/main/streams/francet
 
 # Dossier et fichier de sortie
 FHD_OUTPUT_DIR = "./Streams"
-FHD_OUTPUT_FILE = "france-tv-documentaire.m3u8"
+FHD_OUTPUT_FILE = "france-tv-docs.m3u8"
 
 try:
     log(f"Téléchargement de : {url}")
