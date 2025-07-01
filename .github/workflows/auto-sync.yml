@@ -73,6 +73,9 @@ jobs:
         
       - name: Run T18 M3U8 update script
         run: python3 ./scripts/t18_m3u8.py
+
+      - name: Run LCI M3U8 update script
+        run: python3 ./scripts/lci_m3u8.py
         
       - name: Configure Git
         run: |
