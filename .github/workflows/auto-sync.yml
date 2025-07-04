@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run TF1 Backup M3U8 update script
-        run: python3 ./scripts/tf1_m3u8.py
+      # - name: Run TF1 Backup M3U8 update script
+      #   run: python3 ./scripts/tf1_m3u8.py
         
       - name: Run France 2 update script
         run: python3 ./scripts/france2_m3u8.py
@@ -50,8 +50,8 @@ jobs:
       - name: Run CSTAR M3U8 update script
         run: python3 ./scripts/cstar_m3u8.py
         
-      - name: Run TFX M3U8 update script
-        run: python3 ./scripts/tfx_m3u8.py
+      # - name: Run TFX M3U8 update script
+      #   run: python3 ./scripts/tfx_m3u8.py
         
       - name: Run CHERIE25 M3U8 update script
         run: python3 ./scripts/cherie25_m3u8.py
@@ -62,8 +62,8 @@ jobs:
       - name: Run ARTE Backup M3U8 update script
         run: python3 ./scripts/arte-bck_m3u8.py
 
-      - name: Run TF1 Séries Films M3U8 update script
-        run: python3 ./scripts/tf1-series-films_m3u8.py
+      # - name: Run TF1 Séries Films M3U8 update script
+      #   run: python3 ./scripts/tf1-series-films_m3u8.py
 
       - name: Run France TV Séries M3U8 update script
         run: python3 ./scripts/france-tv-series_m3u8.py
