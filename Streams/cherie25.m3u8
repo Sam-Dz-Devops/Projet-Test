@@ -1,3 +1,3 @@
 #EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=4277000,AVERAGE-BANDWIDTH=4077000,CODECS="avc1.64002A,mp4a.40.2",RESOLUTION=1920x1080,FRAME-RATE=25.000,AUDIO="audio-AACL-128"
-https://event2.nrjaudio.fm/hls/live/2038379/cherie_25/master.m3u8?hdnts=exp=1753665684~acl=/*~hmac=08c763e292eef06a9c4e339fd053f7931696c672e159177a0331c5b55f0e2399
+https://event2.nrjaudio.fm/hls/live/2038379/cherie_25/master.m3u8?hdnts=exp=1753708935~acl=/*~hmac=6901212deb3b200d18f0ab804407d733b78dd77e8188ec5df165877e0cdc3b97
