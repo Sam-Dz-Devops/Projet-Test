@@ -1,3 +1,3 @@
 #EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=4277000,AVERAGE-BANDWIDTH=4077000,CODECS="avc1.64002A,mp4a.40.2",RESOLUTION=1920x1080,FRAME-RATE=25.000,AUDIO="audio-AACL-128"
-https://event2.nrjaudio.fm/hls/live/2038379/cherie_25/master.m3u8?hdnts=exp=1759324812~acl=/*~hmac=96049ef0fc2e0bfe96b72214b4760f515ddb14a7383d5232cb62579853f3d4ee
+https://github.com/Paradise-91/ParaTV/raw/main/assets/indisponible/indisponible.ts
